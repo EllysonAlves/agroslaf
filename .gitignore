@@ -6,9 +6,11 @@ node_modules/
 out/
 tsconfig.tsbuildinfo
 
-# ambiente
+# ambiente (so .env.example fica versionado)
 .env
 .env.local
+.env.development
+.env.production
 
 # config com senhas (NUNCA versionar)
 api/config.php

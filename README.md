@@ -144,11 +144,13 @@ Toda alteração feita no painel reflete automaticamente no site.
 | Arquivo | Uso | Versionado? |
 |---|---|---|
 | `.env.example` | Modelo de referência | Sim |
-| `.env.development` | Usado em `npm run dev` | Sim (não tem segredo, só a URL da API local) |
-| `.env.production` | Usado em `npm run build` | Sim (URL pública da API — não tem segredo) |
+| `.env.development` | Usado em `npm run dev` | **Não** (ignorado no git — crie a partir do `.env.example`) |
+| `.env.production` | Usado em `npm run build` | **Não** (ignorado no git — crie a partir do `.env.example`) |
 | `.env.local` | Override local, se precisar | **Não** (ignorado no git) |
 
-Nenhum desses arquivos deve conter segredos: `NEXT_PUBLIC_*` é sempre exposto no bundle do navegador. Segredos reais (senha do banco, `token_secret`) ficam só em `api/config.php`, que nunca é versionado.
+Antes de rodar o projeto, copie `.env.example` para `.env.development` (dev) e `.env.production` (build) e ajuste a URL da API em cada um.
+
+Nenhum desses arquivos precisa conter segredos: `NEXT_PUBLIC_*` é sempre exposto no bundle do navegador. Mesmo assim, só o `.env.example` fica no repositório — os demais são específicos de cada ambiente. Segredos reais (senha do banco, `token_secret`) ficam só em `api/config.php`, que nunca é versionado.
 
 ---
 
