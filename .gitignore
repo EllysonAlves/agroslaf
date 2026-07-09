@@ -1,0 +1,28 @@
+# dependencias
+node_modules/
+
+# build do Next
+.next/
+out/
+tsconfig.tsbuildinfo
+
+# ambiente
+.env
+.env.local
+
+# config com senhas (NUNCA versionar)
+api/config.php
+
+# uploads enviados pelo admin
+uploads/*
+!uploads/.htaccess
+!uploads/.gitkeep
+
+# referencia de design (mockups)
+design-reference/
+
+# material bruto (fotos/videos originais, nao usado pelo site)
+public/agroslaf/
+
+# sistema
+.DS_Store

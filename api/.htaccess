@@ -1,0 +1,12 @@
+# Garante que o cabecalho Authorization chegue ao PHP (necessario em CGI/FastCGI)
+SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP:Authorization} ^(.+)$
+  RewriteRule .* - [E=HTTP_AUTHORIZATION:%1]
+</IfModule>
+
+# Protege arquivos sensiveis
+<FilesMatch "(config\.php|config\.example\.php|schema\.sql|db\.php|helpers\.php)$">
+  Require all denied
+</FilesMatch>

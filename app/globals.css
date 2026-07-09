@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+/* Cores do tema (editáveis pelo painel em runtime via --color-*) */
+@theme {
+  --color-primary: #003b5c;
+  --color-primary-dark: #002f49;
+  --color-secondary: #4bae4f;
+  --color-secondary-dark: #3f9f43;
+  --color-secondary-deep: #2d9633;
+  --color-secondary-light: #7ed87c;
+}
+
+:root {
+  --earth: #b88746;
+  --soft: #f5f7f8;
+  --ink: #0b3145;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+  color: var(--ink);
+  font-family: var(--font-inter), Arial, sans-serif;
+}
+
+@layer base {
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.container-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+.section-label {
+  color: var(--color-secondary);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.hero-overlay {
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--color-primary) 90%, transparent),
+      color-mix(in srgb, var(--color-primary) 55%, transparent) 46%,
+      color-mix(in srgb, var(--color-primary) 16%, transparent)
+    ),
+    linear-gradient(
+      0deg,
+      color-mix(in srgb, var(--color-primary) 42%, transparent),
+      color-mix(in srgb, var(--color-primary) 18%, transparent)
+    );
+}
+
+.soft-shadow {
+  box-shadow: 0 16px 36px color-mix(in srgb, var(--color-primary) 12%, transparent);
+}
+
+.focus-ring:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--color-secondary) 55%, transparent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
